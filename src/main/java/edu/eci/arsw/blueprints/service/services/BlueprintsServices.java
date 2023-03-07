@@ -104,4 +104,10 @@ public class BlueprintsServices {
         return blueprintsByName;
     }
 
+    public void updateBlueprint(String author,String name, Blueprint bp) throws BlueprintNotFoundException, BlueprintPersistenceException {
+        bpp.updateBlueprint(author, name, bp);
+    }
+
+
+
 }

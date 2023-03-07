@@ -79,4 +79,10 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
         return authorBlueprints;
     }
 
+    @Override
+    public void updateBlueprint(String author,String bprintname, Blueprint bp) throws BlueprintNotFoundException {
+        Blueprint blueprint = getBlueprint(author,bprintname);
+        blueprint.setPoints(bp.getPoints());
+    }
+
 }
