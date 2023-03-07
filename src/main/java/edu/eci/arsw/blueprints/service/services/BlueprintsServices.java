@@ -7,6 +7,7 @@ package edu.eci.arsw.blueprints.service.services;
 
 import edu.eci.arsw.blueprints.service.model.Blueprint;
 import edu.eci.arsw.blueprints.service.persistence.BlueprintNotFoundException;
+import edu.eci.arsw.blueprints.service.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.service.persistence.BlueprintsPersistence;
 
 import java.util.HashSet;
@@ -29,13 +30,14 @@ public class BlueprintsServices {
     @Autowired
     Filter filter;
 
-    public void addNewBlueprint(Blueprint bp) {
+    public void addNewBlueprint(Blueprint bp) throws BlueprintPersistenceException {
         try {
             bpp.saveBlueprint(bp);
         } catch (Exception e) {
-            throw new UnsupportedOperationException("Error with the operation on services.");
+            throw new BlueprintPersistenceException("Error saving blueprint.", e);
         }
     }
+
 
     public Set<Blueprint> getAllBlueprints() {
         Set<Blueprint> blueprints;

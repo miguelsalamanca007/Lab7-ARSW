@@ -3,6 +3,7 @@ package edu.eci.arsw.blueprints.service;
 import edu.eci.arsw.blueprints.service.model.Blueprint;
 import edu.eci.arsw.blueprints.service.model.Point;
 import edu.eci.arsw.blueprints.service.persistence.BlueprintNotFoundException;
+import edu.eci.arsw.blueprints.service.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.service.services.BlueprintsServices;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,7 +13,7 @@ import java.util.Set;
 public class Main {
 
 
-    public static void main(String a[]) throws BlueprintNotFoundException {
+    public static void main(String a[]) throws BlueprintNotFoundException, BlueprintPersistenceException {
         ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         BlueprintsServices bps = appContext.getBean(BlueprintsServices.class);
         Point[] pts = new Point[] { new Point(0, 0), new Point(10, 10), new Point(10, 10), new Point(11, 10),
