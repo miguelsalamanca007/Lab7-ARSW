@@ -61,7 +61,7 @@ public class BlueprintAPIController {
         }
     }
 
-    @RequestMapping(path = "/create",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "/crear",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> addBlueprint(@RequestBody Blueprint blueprint) {
         try {
@@ -72,5 +72,4 @@ public class BlueprintAPIController {
             return new ResponseEntity<>(ex.getMessage(),HttpStatus.FORBIDDEN);
         }
     }
-
 }
