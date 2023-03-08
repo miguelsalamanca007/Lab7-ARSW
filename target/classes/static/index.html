@@ -18,30 +18,57 @@
       rel="stylesheet"
       href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen"></link>
     <script src="js/apimock.js"></script>
     <script src="js/app.js"></script>
   </head>
   <body>
-    <h1>Blueprints</h1>
+    <div>
+      <h1>Blueprints</h1>
 
-    <label for="author">Author:</label><br />
-    <input type="text" id="author" name="author" /><br />
+      <label for="author">Author:</label><br />
+      <input type="text" id="author" name="author" /><br />
 
-    <button id="get-blueprints">Get Blueprints</button><br />
-
-    Author Selected: <span id="selected-author"></span><br />
-
-    <table id="blueprint-table">
-      <thead>
+      <button id="get-blueprints">Get Blueprints</button><br />
+    </div>
+    <div>
+    <div>
+      Author Selected: <span id="selected-author"></span><br />
+      <table id="blueprint-table" style="border: '1px solid #ddd'">
         <tr>
-          <th>Name</th>
-          <th>Points</th>
+          <th>Blueprint Name</th>
+          <th>Number of Points</th>
+          <th>Open</th>
         </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <br />
-
-    Total Points: <span id="total-points"></span><br />
+        <tr>
+          <td>Blueprint 1</td>
+          <td>50</td>
+          <td>
+            <button>Open</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Blueprint 2</td>
+          <td>100</td>
+          <td>
+            <button>Open</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Blueprint 3</td>
+          <td>200</td>
+          <td>
+            <button>Open</button>
+          </td>
+        </tr>
+      </table>
+      <br />
+      Total Points: <span id="total-points"></span><br />
+    </div>
+    <img>
+        <h1>Current Blueprint: <span>house</span></h1>
+        <img src="/img/mock.png" alt="blueprint"/>
+    </div>
+    </div>
   </body>
 </html>
