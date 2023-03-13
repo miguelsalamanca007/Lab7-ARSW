@@ -98,6 +98,10 @@ apimock = (function () {
     callback(mockdata[authname]);
   };
 
+  var changeSelectedAuthorsName = function () {
+
+  };
+
   return {
     getBlueprintsByAuthor: privateGetBlueprintsByAuthor,
     getBlueprintsByNameAndAuthor: function (authname, bpname, callback) {
@@ -107,6 +111,13 @@ apimock = (function () {
         })
       );
     },
+
+    setSelectedAuthor: function (authname) {
+        if (mockdata[authname]) {
+            selectedAuthor = authname;
+        }
+    },
+
   };
 })();
 
