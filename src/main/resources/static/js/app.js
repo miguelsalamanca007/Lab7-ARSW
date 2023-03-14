@@ -47,6 +47,7 @@ var app = (function() {
     });
   };
 
+
   var drawBlueprint = function(blueprint) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
