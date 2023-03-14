@@ -14,11 +14,20 @@ var app = (function() {
       var tableBody = $("#blueprint-table");
       tableBody.empty();
 
+
+      var row = $("<tr></tr>");
+      row.append("<th> Blueprint Name</th>");
+      row.append("<th> Number of points</th>");
+      row.append("<th> Open</th>");
+      tableBody.append(row);
+
+
       mappedBlueprints.map(function(bp) {
-        var row = $("<tr></tr>");
-        row.append($("<td>" + bp.name + "</td>"));
-        row.append($("<td>" + bp.points + "</td>"));
-        tableBody.append(row);
+        var row2 = $("<tr></tr>");
+        row2.append($("<td>" + bp.name + "</td>"));
+        row2.append($("<td>" + bp.points + "</td>"));
+        row2.append($("<td> <button> Open </button> </td>"))
+        tableBody.append(row2);
       });
 
       var totalPoints = blueprints.reduce(function(total, bp) {
