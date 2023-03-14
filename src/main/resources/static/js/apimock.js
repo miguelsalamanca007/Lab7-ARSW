@@ -43,16 +43,16 @@ apimock = (function () {
     {
       author: "miguel",
       points: [
-        { x: 140, y: 140 },
-        { x: 115, y: 115 },
+        { x: 1, y: 140 },
+        { x: 200, y: 25 },
       ],
       name: "micasita",
     },
     {
       author: "miguel",
       points: [
-        { x: 140, y: 140 },
-        { x: 115, y: 115 },
+        { x: 33, y: 21 },
+        { x: 77, y: 45 },
       ],
       name: "micasita2",
     },
@@ -61,16 +61,16 @@ apimock = (function () {
     {
       author: "juanca",
       points: [
-        { x: 140, y: 140 },
-        { x: 115, y: 115 },
+        { x: 333, y: 12 },
+        { x: 200, y: 225 },
       ],
       name: "iHouse",
     },
     {
       author: "juanca",
       points: [
-        { x: 140, y: 140 },
-        { x: 115, y: 115 },
+        { x: 77, y: 22 },
+        { x: 400, y: 235 },
       ],
       name: "iHouseProMax",
     },
@@ -79,18 +79,37 @@ apimock = (function () {
     {
       author: "juanqui",
       points: [
-        { x: 140, y: 140 },
-        { x: 115, y: 115 },
+        { x: 234, y: 140 },
+        { x: 456, y: 333 },
       ],
       name: "caserio",
     },
     {
       author: "juanqui",
       points: [
-        { x: 140, y: 140 },
-        { x: 115, y: 115 },
+        { x: 123, y: 64 },
+        { x: 21, y: 22 },
       ],
       name: "caserio2",
+    },
+  ];
+
+  mockdata["bayona"] = [
+    {
+      author: "bayona",
+      points: [
+        { x: 44, y: 256 },
+        { x: 478, y: 122 },
+      ],
+      name: "duitama",
+    },
+    {
+      author: "bayona",
+      points: [
+        { x: 187, y: 46 },
+        { x: 7, y: 304 },
+      ],
+      name: "boyaca",
     },
   ];
 
