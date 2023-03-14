@@ -1,13 +1,15 @@
+.main{
+    margin-left: 10%;
+}
 /* Titulo */
 h1 {
     font-size: 2.5em;
     font-weight: bold;
     color: #2d2d2d;
-    text-align: center;
 }
- 
+
 /* Campo de captura del autor */ 
-input[type="text"] { 
+input[type="text"] {
     width: 200px; 
     padding: 10px; 
     border-radius: 5px; 
@@ -15,26 +17,49 @@ input[type="text"] {
 }  
 
  /* Boton de 'Get blueprints' */  
-button { 
-    background-color: #4CAF50; /* Green */ 
-    border: none; 
-    color: white; 
-    padding: 10px 20px; 
-    text-align: center; 
-    text-decoration: none; 
+button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
     display: inline-block;   font-size: 16px;   margin: 4px 2px;   cursor: pointer;
 }
 
  /* Campo donde se mostrará el nombre del autor seleccionado */  
 
- .authorName {   font-size : 1.5em ;   font-weight : bold ; }
+.authorName {   font-size : 1.5em ;   font-weight : bold ; }
 
- /* Tabla HTML donde se mostrará el listado de planos (con sólo los encabezados)*/
+/* Tabla HTML donde se mostrará el listado de planos (con sólo los encabezados)*/
 
- table, th, td {     border : 1px solid black ;     border-collapse : collapse ; } 
- th, td {     padding : 15px ; } 
- th {     background-color : #4CAF50 ;     color : white ; }
+table, th, td {     border : 1px solid black ;     border-collapse : collapse ; }
+th, td {     padding : 15px ; } 
+th {     background-color : #4CAF50 ;     color : white ; }
 
- /* Campo donde se mostrará el total de puntos de los planos del autor*/
+/* Campo donde se mostrará el total de puntos de los planos del autor*/
 
- .totalPoints{ font-size : 1.5em ; font-weight : bold ; }
+.totalPoints{ font-size : 1.5em ; font-weight : bold ; margin-top: 10px;}
+span{ color: #4CAF50;}
+.searcher{
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 30%;
+}
+.data-view{
+    margin: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+}
+.table-data-view{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
