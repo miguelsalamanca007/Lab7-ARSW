@@ -1,5 +1,6 @@
 var app = (function() {
-  var api = apimock;
+  //var api = apimock;
+  var api = apiclient;
 
   var currentBlueprint;
   var canvas, ctx;
