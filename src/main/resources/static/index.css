@@ -43,20 +43,21 @@ th {     background-color : #4CAF50 ;     color : white ; }
 .totalPoints{ font-size : 1.5em ; font-weight : bold ; margin-top: 10px;}
 span{ color: #4CAF50;}
 .searcher{
-    margin: 10px 20px;
+    margin-top: 10px;
+    margin-left: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 30%;
+    width: 40%;
 }
 .data-view{
-    margin: 20px 20px 20px 20px;
+    margin-left: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    width: 60%;
+    width: 90%;
 }
 .table-data-view{
     display: flex;
