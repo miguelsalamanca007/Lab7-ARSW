@@ -12,4 +12,5 @@ edu\eci\arsw\blueprints\service\persistence\impl\Undersampling.class
 edu\eci\arsw\blueprints\service\persistence\impl\Redundancy.class
 edu\eci\arsw\blueprints\controllers\BlueprintAPIController.class
 edu\eci\arsw\blueprints\controllers\ResourceNotFoundException.class
+edu\eci\.DS_Store
 edu\eci\arsw\blueprints\service\persistence\BlueprintNotFoundException.class
