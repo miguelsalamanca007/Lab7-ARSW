@@ -4,6 +4,7 @@ var app = (function() {
 
   var currentBlueprint;
   var canvas, ctx;
+  let currentPoints;
 
   $(document).ready(function() {
     canvas = document.getElementById("my-canvas");
@@ -15,7 +16,7 @@ var app = (function() {
       var mappedBlueprints = blueprints.map(function(bp) {
         return {
           name: bp.name,
-          points: bp.points.length
+          points: bp.points
         };
       });
 
@@ -25,16 +26,34 @@ var app = (function() {
       mappedBlueprints.map(function(bp) {
         var row = $("<tr></tr>");
         row.append($("<td>" + bp.name + "</td>"));
-        row.append($("<td>" + bp.points + "</td>"));
+        row.append($("<td>" + bp.points.length + "</td>"));
         var openButton = $("<button>Open</button>");
         openButton.click(function() {
           api.getBlueprintsByNameAndAuthor(authorName, bp.name, function(
             blueprint
           ) {
             currentBlueprint = blueprint;
+            currentPoints = currentBlueprint.points
             drawBlueprint(currentBlueprint);
             $("#current-blueprint").text(currentBlueprint.name);
+
+
+          if(window.PointerEvent) {
+            canvas.addEventListener("pointerdown", function(event){
+                var points = bp.points
+                var xCoord = event.pageX - event.target.offsetLeft
+                var yCoord = event.pageY - event.target.offsetTop
+                ctx.moveTo(points.slice(-1).x, points.slice(-1).y);
+                console.log(points);
+                //ctx.beginPath();
+                ctx.lineTo(xCoord, yCoord);
+                points.push({x:xCoord,y:yCoord})
+                ctx.stroke();
+            });
+          }
+
           });
+
         });
         row.append($("<td></td>").append(openButton));
         tableBody.append(row);
@@ -58,6 +77,10 @@ var app = (function() {
       ctx.lineTo(points[i].x, points[i].y);
     }
     ctx.stroke();
+  };
+
+  var drawNewPoint = function(blueprint, xCoord, yCoord) {
+    var points = blueprint.points;
   };
 
   $(document).ready(function() {
