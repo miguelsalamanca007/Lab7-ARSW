@@ -6,15 +6,7 @@ var app = (function() {
   var canvas, ctx;
   let currentPoints;
   let points;
-
-  $(document).ready(function() {
-    canvas = document.getElementById("my-canvas");
-    ctx = canvas.getContext("2d");
-  });
-
-  var updateBlueprints = function() {
-    api.updateBlueprints(authorName, currentBlueprint.name, points)
-  }
+  let authorName;
 
   var updateBlueprintsByAuthor = function(authorName) {
     api.getBlueprintsByAuthor(authorName, function(blueprints) {
@@ -70,6 +62,18 @@ var app = (function() {
 
       $("#total-points").text(totalPoints);
     });
+
+    var updateBlueprints = function() {
+      console.log("updating...")
+      if(currentBlueprint) {
+        api.updateBlueprints(authorName, currentBlueprint.name, points)
+      }
+
+    };
+  
+    var saveButton = $("#save-blueprints");
+    saveButton.click(updateBlueprints);
+
   };
 
 
@@ -88,9 +92,13 @@ var app = (function() {
     var points = blueprint.points;
   };
 
+  
+
   $(document).ready(function() {
+    canvas = document.getElementById("my-canvas");
+    ctx = canvas.getContext("2d");
     $("#get-blueprints").click(function() {
-      var authorName = $("#author").val();
+      authorName = $("#author").val();
       updateBlueprintsByAuthor(authorName);
       $("#selected-author").text(authorName);
     });
@@ -98,7 +106,7 @@ var app = (function() {
 
   return {
     updateBlueprintsByAuthor: updateBlueprintsByAuthor,
-    drawBlueprint: drawBlueprint
+    drawBlueprint: drawBlueprint,
   };
 })();
 

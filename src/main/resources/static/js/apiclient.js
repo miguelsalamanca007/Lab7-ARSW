@@ -36,7 +36,7 @@ apiclient = (function () {
             }
             
             $.ajax({
-                url: "http://localhost:8080/blueprints/" + authname + "/" + bpname,
+                url: "http://localhost:8080/blueprints/update/" + authname + "/" + bpname,
                 type: "PUT",
                 contentType: "application/json",
                 data: JSON.stringify(blueprint),
