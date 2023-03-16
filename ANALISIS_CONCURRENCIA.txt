@@ -7,3 +7,7 @@ GET http://localhost:8080/blueprints/miguel
 ##
 
 GET http://localhost:8080/blueprints/miguelin
+
+##
+
+PUT http://localhost:8080/blueprints/miguelin

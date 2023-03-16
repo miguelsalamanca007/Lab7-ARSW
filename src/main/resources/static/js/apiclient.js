@@ -25,6 +25,29 @@ apiclient = (function () {
                     selectedAuthor = authname;
                 }
             });
+        },
+
+        updateBlueprints : function(authname, bpname, points) {
+
+            var blueprint = {
+                "author": authname,
+                "name": bpname,
+                "points":points
+            }
+            
+            $.ajax({
+                url: "http://localhost:8080/blueprints/" + authname + "/" + bpname,
+                type: "PUT",
+                contentType: "application/json",
+                data: JSON.stringify(blueprint),
+                success: function(result) {
+                    console.log(result);
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR.status + " " + jqXHR.statusText);
+                }
+            });
+
         }
     };
     
