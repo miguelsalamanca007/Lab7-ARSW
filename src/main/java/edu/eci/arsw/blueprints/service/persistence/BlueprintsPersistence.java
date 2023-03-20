@@ -50,6 +50,24 @@ public interface BlueprintsPersistence {
      */
     public Set<Blueprint> getBlueprintsByAuthor(String author) throws BlueprintNotFoundException;
 
-    public void updateBlueprint(String author,String bprintname, Blueprint bp) throws BlueprintPersistenceException, BlueprintNotFoundException;
+    public void updateBlueprint(String author, String bprintname, Blueprint bp)
+            throws BlueprintPersistenceException, BlueprintNotFoundException;
+
+    /**
+     * Method that save a given blueprint
+     * 
+     * @param bp blueprint
+     * @throws BlueprintPersistenceException if the blueprint already exists
+     */
+    public void postBlueprint(Blueprint bp) throws BlueprintPersistenceException;
+
+    /**
+     * Method that delete a given blueprint
+     * 
+     * @param author blueprint's author
+     * @param bpname blueprint's name
+     * @throws BlueprintPersistenceException if the blueprint doesn't exists
+     */
+    public void deleteBlueprint(String author, String bpname) throws BlueprintPersistenceException;
 
 }

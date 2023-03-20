@@ -61,7 +61,7 @@ public class BlueprintAPIController {
         }
     }
 
-    @RequestMapping(path = "/crear",method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(path = "/crear", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<?> addBlueprint(@RequestBody Blueprint blueprint) {
         try {
@@ -69,19 +69,43 @@ public class BlueprintAPIController {
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (BlueprintPersistenceException ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>(ex.getMessage(),HttpStatus.FORBIDDEN);
+            return new ResponseEntity<>(ex.getMessage(), HttpStatus.FORBIDDEN);
         }
     }
 
     @PutMapping(path = "/update/{author}/{bpname}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseEntity<?> updateBlueprint(@PathVariable("author") String author, @PathVariable("bpname") String bpname, @RequestBody Blueprint blueprint) {
+    public ResponseEntity<?> updateBlueprint(@PathVariable("author") String author,
+            @PathVariable("bpname") String bpname, @RequestBody Blueprint blueprint) {
         try {
             bps.updateBlueprint(author, bpname, blueprint);
             return new ResponseEntity<>(HttpStatus.ACCEPTED);
         } catch (BlueprintNotFoundException | BlueprintPersistenceException ex) {
             Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>( "No se pudo actualizar el Blueprint", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("No se pudo actualizar el Blueprint", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> postBlueprint(@RequestBody String bp) {
+        try {
+            Blueprint blueprint = new Gson().fromJson(bp, Blueprint.class);
+            bps.postBlueprint(blueprint);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (BlueprintPersistenceException ex) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error this blueprint already exists, try with a PUT", HttpStatus.FORBIDDEN);
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, path = "/{author}/{bpname}")
+    public ResponseEntity<?> deleteBlueprint(@PathVariable String author, @PathVariable String bpname) {
+        try {
+            bps.deleteBlueprint(author, bpname);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        } catch (BlueprintPersistenceException ex) {
+            Logger.getLogger(BlueprintAPIController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>("Error this blueprint doesn't exists", HttpStatus.FORBIDDEN);
         }
     }
 

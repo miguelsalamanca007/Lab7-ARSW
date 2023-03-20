@@ -10,7 +10,6 @@ import edu.eci.arsw.blueprints.service.model.Point;
 import edu.eci.arsw.blueprints.service.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.service.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.service.persistence.BlueprintsPersistence;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -81,9 +80,37 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
     }
 
     @Override
-    public void updateBlueprint(String author,String bprintname, Blueprint bp) throws BlueprintNotFoundException {
-        Blueprint blueprint = getBlueprint(author,bprintname);
+    public void updateBlueprint(String author, String bprintname, Blueprint bp) throws BlueprintNotFoundException {
+        Blueprint blueprint = getBlueprint(author, bprintname);
         blueprint.setPoints(bp.getPoints());
+    }
+
+    @Override
+    public void postBlueprint(Blueprint bp) throws BlueprintPersistenceException {
+        if (blueprints.containsKey(new Tuple<>(bp.getAuthor(), bp.getName())))
+            throw new BlueprintPersistenceException("This object already exists");
+        else {
+            blueprints.put(new Tuple<>(bp.getAuthor(), bp.getName()), bp);
+            try {
+                Thread.sleep(0);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    @Override
+    public void deleteBlueprint(String author, String bpname) throws BlueprintPersistenceException {
+        if (!blueprints.containsKey(new Tuple<>(author, bpname)))
+            throw new BlueprintPersistenceException("This object doesn't exists");
+        else {
+            blueprints.remove(new Tuple<>(author, bpname));
+            try {
+                Thread.sleep(0);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 }
