@@ -67,6 +67,8 @@ var app = (function () {
       console.log("updating...");
       if (currentBlueprint) {
         api.updateBlueprints(authorName, currentBlueprint.name, points);
+        alert("Updated Blueprint");
+        updateBlueprintsByAuthor(authorName);
       }
     };
 
@@ -78,8 +80,9 @@ var app = (function () {
       if (currentBlueprint) {
         api.deleteBlueprint(authorName, currentBlueprint.name);
         $("#current-blueprint").text("");
-        updateBlueprintsByAuthor(authorName);
         drawBlueprint({ points: [] });
+        alert("Deleted Blueprint");
+        updateBlueprintsByAuthor(authorName);
       }
     };
 
@@ -97,6 +100,7 @@ var app = (function () {
       currentBlueprint = { name: name, points: [] };
       points = [];
       drawBlueprint({ points: [] });
+      alert("Created Blueprint");
     };
 
     var createButton = $("#create-blueprint");

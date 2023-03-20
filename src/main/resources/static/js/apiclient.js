@@ -47,7 +47,6 @@ apiclient = (function () {
         data: JSON.stringify(blueprint),
         success: function (result) {
           console.log(result);
-          alert("Updated");
         },
         error: function (jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.status + " " + jqXHR.statusText);
@@ -69,7 +68,6 @@ apiclient = (function () {
         data: JSON.stringify(blueprint),
         success: function (result) {
           console.log(result);
-          alert("Created");
         },
         error: function (jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.status + " " + jqXHR.statusText);
@@ -84,7 +82,6 @@ apiclient = (function () {
         contentType: "application/json",
         success: function (result) {
           console.log(result);
-          alert("Deleted");
         },
         error: function (jqXHR, textStatus, errorThrown) {
           console.log(jqXHR.status + " " + jqXHR.statusText);
