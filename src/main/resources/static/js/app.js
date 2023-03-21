@@ -111,6 +111,9 @@ var app = (function () {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     var points = blueprint.points;
+    if(points.length === 0){
+        return;
+    }
     ctx.moveTo(points[0].x, points[0].y);
     for (var i = 1; i < points.length; i++) {
       ctx.lineTo(points[i].x, points[i].y);
